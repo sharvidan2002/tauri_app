@@ -1,5 +1,6 @@
 use std::fmt;
 
+#[allow(dead_code)]
 #[derive(Debug)]
 pub enum NICError {
     InvalidFormat,
@@ -22,6 +23,7 @@ impl fmt::Display for NICError {
 /// Converts old format NIC to new format
 /// Old format: YY DDD SSS C V/X (9 digits + letter)
 /// New format: YYYY DDD SSSS C (12 digits)
+#[allow(dead_code)]
 pub fn convert_old_to_new_nic(old_nic: &str) -> Result<String, NICError> {
     // Remove any spaces and convert to uppercase
     let cleaned = old_nic.replace(" ", "").to_uppercase();
@@ -54,6 +56,7 @@ pub fn convert_old_to_new_nic(old_nic: &str) -> Result<String, NICError> {
     Err(NICError::InvalidLength)
 }
 
+#[allow(dead_code)]
 fn convert_9_digits_to_12(digits: &str) -> Result<String, NICError> {
     if digits.len() != 9 {
         return Err(NICError::InvalidLength);
@@ -82,6 +85,7 @@ fn convert_9_digits_to_12(digits: &str) -> Result<String, NICError> {
 }
 
 /// Extracts information from NIC number (both old and new formats)
+#[allow(dead_code)]
 pub fn extract_nic_info(nic: &str) -> Result<NICInfo, NICError> {
     let new_nic = convert_old_to_new_nic(nic)?;
 
@@ -108,6 +112,7 @@ pub fn extract_nic_info(nic: &str) -> Result<NICInfo, NICError> {
     })
 }
 
+#[allow(dead_code)]
 #[derive(Debug)]
 pub struct NICInfo {
     pub year: u32,
@@ -132,7 +137,7 @@ mod tests {
         assert_eq!(convert_old_to_new_nic("916980123V").unwrap(), "199169800123");
 
         // Example D (year 2000): 001001234V -> 200010001234
-        assert_eq!(convert_old_to_new_nic("001001234V").unwrap, "200010001234");
+        assert_eq!(convert_old_to_new_nic("001001234V").unwrap(), "200010001234");
     }
 
     #[test]
