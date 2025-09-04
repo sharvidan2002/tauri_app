@@ -1,0 +1,333 @@
+/* Print-specific styles */
+
+@page {
+  size: A4;
+  margin: 1cm;
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-family: 'Times New Roman', serif;
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid;
+  }
+
+  /* Individual staff print template */
+  .staff-print-individual {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 20pt;
+    background: white;
+    color: black;
+  }
+
+  .staff-print-header {
+    text-align: center;
+    margin-bottom: 30pt;
+    border-bottom: 2pt solid #333;
+    padding-bottom: 15pt;
+  }
+
+  .staff-print-logo {
+    width: 80pt;
+    height: 80pt;
+    margin: 0 auto 15pt;
+  }
+
+  .staff-print-title {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5pt;
+  }
+
+  .staff-print-subtitle {
+    font-size: 14pt;
+    color: #666;
+    margin-bottom: 5pt;
+  }
+
+  .staff-print-office {
+    font-size: 12pt;
+    color: #666;
+  }
+
+  .staff-print-content {
+    display: flex;
+    gap: 20pt;
+    margin-bottom: 20pt;
+  }
+
+  .staff-print-photo {
+    flex-shrink: 0;
+    width: 120pt;
+    text-align: center;
+  }
+
+  .staff-print-photo img {
+    width: 120pt;
+    height: 150pt;
+    object-fit: cover;
+    border: 2pt solid #333;
+    border-radius: 8pt;
+  }
+
+  .staff-print-details {
+    flex: 1;
+  }
+
+  .staff-print-section {
+    margin-bottom: 20pt;
+  }
+
+  .staff-print-section-title {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10pt;
+    padding-bottom: 5pt;
+    border-bottom: 1pt solid #ccc;
+  }
+
+  .staff-print-field {
+    display: flex;
+    margin-bottom: 8pt;
+    padding: 4pt 0;
+  }
+
+  .staff-print-label {
+    font-weight: bold;
+    width: 150pt;
+    color: #555;
+  }
+
+  .staff-print-value {
+    flex: 1;
+    color: #333;
+  }
+
+  .staff-print-footer {
+    margin-top: 30pt;
+    padding-top: 15pt;
+    border-top: 1pt solid #ccc;
+    text-align: center;
+    font-size: 10pt;
+    color: #666;
+  }
+
+  /* Bulk print template - table format */
+  .staff-print-bulk {
+    width: 100%;
+    margin: 0;
+    padding: 15pt;
+    background: white;
+    color: black;
+  }
+
+  .staff-print-bulk-header {
+    text-align: center;
+    margin-bottom: 20pt;
+  }
+
+  .staff-print-bulk-title {
+    font-size: 16pt;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10pt;
+  }
+
+  .staff-print-bulk-filters {
+    font-size: 10pt;
+    color: #666;
+    margin-bottom: 15pt;
+  }
+
+  .staff-print-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2pt solid #333;
+    font-size: 10pt;
+  }
+
+  .staff-print-table th {
+    background: #f5f5f5 !important;
+    color: #333 !important;
+    font-weight: bold;
+    padding: 8pt 6pt;
+    border: 1pt solid #333;
+    text-align: left;
+  }
+
+  .staff-print-table td {
+    padding: 6pt 4pt;
+    border: 1pt solid #666;
+    vertical-align: top;
+  }
+
+  .staff-print-table tbody tr:nth-child(even) {
+    background: #fafafa !important;
+  }
+
+  .staff-print-table tbody tr:nth-child(odd) {
+    background: white !important;
+  }
+
+  .staff-print-summary {
+    margin-top: 20pt;
+    padding: 10pt;
+    border: 1pt solid #ccc;
+    background: #f9f9f9 !important;
+  }
+
+  .staff-print-summary-title {
+    font-weight: bold;
+    margin-bottom: 8pt;
+  }
+
+  .staff-print-summary-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10pt;
+  }
+
+  /* Landscape orientation for bulk print */
+  .landscape-print {
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+
+  /* Print metadata */
+  .print-metadata {
+    position: fixed;
+    bottom: 10pt;
+    right: 10pt;
+    font-size: 8pt;
+    color: #999;
+  }
+
+  /* Hide elements that shouldn't be printed */
+  button,
+  .btn,
+  .button,
+  .no-print,
+  .print-button,
+  .edit-button,
+  .delete-button,
+  nav,
+  .navigation,
+  .sidebar,
+  .menu,
+  .toolbar,
+  .pagination,
+  .search-bar,
+  .filter-panel,
+  .modal-backdrop,
+  .dropdown,
+  .tooltip {
+    display: none !important;
+  }
+
+  /* Ensure important content is visible */
+  .print-content,
+  .staff-details,
+  .staff-table,
+  .print-template {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Force black text for better printing */
+  h1, h2, h3, h4, h5, h6,
+  .title, .heading,
+  .label, .field-label {
+    color: black !important;
+  }
+
+  /* Improve table printing */
+  table {
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+}
+
+/* Print preview styles (for screen display) */
+.print-preview {
+  background: white;
+  color: black;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 210mm; /* A4 width */
+  min-height: 297mm; /* A4 height */
+  padding: 20mm;
+  border: 1px solid #ddd;
+}
+
+.print-preview-controls {
+  text-align: center;
+  margin: 20px 0;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.print-preview-controls button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.print-btn {
+  background: #4CAF50;
+  color: white;
+}
+
+.print-btn:hover {
+  background: #45a049;
+}
+
+.cancel-btn {
+  background: #f44336;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background: #da190b;
+}
