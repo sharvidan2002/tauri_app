@@ -25,13 +25,12 @@ import {
 } from '@/components/ui/table';
 import {
   Search,
-  Filter,
   X,
   Download,
   Eye,
   Edit,
   Trash2,
-  Print,
+  Printer, // Fixed: Changed from Print to Printer
   Users,
   SlidersHorizontal,
   RefreshCw
@@ -46,7 +45,6 @@ import {
 } from '@/lib/constants';
 import { useStaffSearch, useDeleteStaff } from '@/hooks/useStaff';
 import { usePrint } from '@/hooks/usePrint';
-import { cn } from '@/lib/utils';
 import StaffDetails from './StaffDetails';
 import EditStaff from './EditStaff';
 import {
@@ -531,7 +529,7 @@ const SearchStaff: React.FC = () => {
                     onClick={handleBulkPrint}
                     loading={printLoading}
                   >
-                    <Print className="h-4 w-4 mr-2" />
+                    <Printer className="h-4 w-4 mr-2" />
                     Print ({selectedStaffIds.length})
                   </Button>
                   <Button

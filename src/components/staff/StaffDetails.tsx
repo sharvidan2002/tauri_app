@@ -9,14 +9,13 @@ import { Button } from '@/components/ui/button';
 import {
   ArrowLeft,
   Edit,
-  Print,
+  Printer, // Fixed: Changed from Print to Printer
   Download,
   User,
   Briefcase,
   DollarSign,
   Phone,
   Mail,
-  MapPin,
   Calendar,
   CreditCard,
   Clock,
@@ -120,7 +119,7 @@ const StaffDetails: React.FC<StaffDetailsProps> = ({
                 loading={printLoading}
                 className="btn-modern"
               >
-                <Print className="h-4 w-4 mr-2" />
+                <Printer className="h-4 w-4 mr-2" />
                 Print
               </Button>
 
@@ -376,7 +375,7 @@ const StaffDetails: React.FC<StaffDetailsProps> = ({
               loading={printLoading}
               className="btn-modern"
             >
-              <Print className="h-4 w-4 mr-2" />
+              <Printer className="h-4 w-4 mr-2" />
               Print Profile
             </Button>
 

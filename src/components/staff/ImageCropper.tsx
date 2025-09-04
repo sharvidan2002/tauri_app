@@ -49,7 +49,6 @@ const ImageCropper: React.FC<ImageCropperProps> = ({
     height: 200,
   });
   const [isDragging, setIsDragging] = useState(false);
-  const [isResizing, setIsResizing] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1);
   const [rotation, setRotation] = useState(0);
@@ -150,7 +149,6 @@ const ImageCropper: React.FC<ImageCropperProps> = ({
 
   const handleCropEnd = useCallback(() => {
     setIsDragging(false);
-    setIsResizing(false);
   }, []);
 
   const resetCrop = useCallback(() => {

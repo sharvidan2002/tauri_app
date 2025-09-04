@@ -483,7 +483,7 @@ const EditStaff: React.FC<EditStaffProps> = ({ staff, onBack, onSave }) => {
                             setIsDatePickerOpen(null);
                           }
                         }}
-                        maxDate={new Date()}
+                        disabled={(date) => date > new Date()} // Fixed: removed maxDate prop
                         className="rounded-md border"
                       />
                     </DialogContent>
@@ -667,7 +667,7 @@ const EditStaff: React.FC<EditStaffProps> = ({ staff, onBack, onSave }) => {
                             setIsDatePickerOpen(null);
                           }
                         }}
-                        maxDate={new Date()}
+                        disabled={(date) => date > new Date()} // Fixed: removed maxDate prop
                         className="rounded-md border"
                       />
                     </DialogContent>

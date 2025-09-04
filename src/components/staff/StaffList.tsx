@@ -24,11 +24,10 @@ import {
 } from '@/components/ui/table';
 import {
   Users,
-  Search,
   SortAsc,
   SortDesc,
   Download,
-  Print,
+  Printer, // Fixed: Changed from Print to Printer
   Eye,
   Edit,
   Trash2,
@@ -42,8 +41,7 @@ import { Staff } from '@/types/staff';
 import {
   DESIGNATIONS,
   SALARY_CODES,
-  GENDERS,
-  TABLE_COLUMNS
+  GENDERS
 } from '@/lib/constants';
 import { useStaffList, useDeleteStaff } from '@/hooks/useStaff';
 import { usePrint } from '@/hooks/usePrint';
@@ -354,7 +352,7 @@ const StaffList: React.FC = () => {
                     className="action-btn action-btn-print"
                     title="Print Individual"
                   >
-                    <Print className="h-4 w-4" />
+                    <Printer className="h-4 w-4" />
                   </Button>
                   <Button
                     size="sm"
@@ -456,7 +454,7 @@ const StaffList: React.FC = () => {
                   variant="outline"
                   onClick={() => handlePrintIndividual(staff)}
                 >
-                  <Print className="h-3 w-3" />
+                  <Printer className="h-3 w-3" />
                 </Button>
               </div>
             </div>
@@ -574,7 +572,7 @@ const StaffList: React.FC = () => {
                     onClick={handleBulkPrint}
                     loading={printLoading}
                   >
-                    <Print className="h-4 w-4 mr-2" />
+                    <Printer className="h-4 w-4 mr-2" />
                     Print ({selectedStaffIds.length})
                   </Button>
                   <Button

@@ -28,6 +28,7 @@ export interface Staff {
 
   // Image
   imagePath?: string;
+  imageFile?: File; // Add imageFile property
 
   // System fields
   createdAt?: string;
@@ -79,8 +80,10 @@ export interface GenderCount {
   count: number;
 }
 
-export interface StaffFormData extends Omit<Staff, 'id' | 'age' | 'dateOfRetirement' | 'createdAt' | 'updatedAt'> {
-  imageFile?: File;
+// Fix: Include age and dateOfRetirement in StaffFormData
+export interface StaffFormData extends Omit<Staff, 'id' | 'createdAt' | 'updatedAt'> {
+  age: number;
+  dateOfRetirement: string;
 }
 
 export interface NICInfo {
@@ -123,6 +126,8 @@ export const GENDERS: Gender[] = ['Male', 'Female'];
 export const DEFAULT_STAFF: Omit<StaffFormData, 'appointmentNumber' | 'fullName' | 'dateOfBirth' | 'nicNumber' | 'addressLine1' | 'contactNumber' | 'designation' | 'dateOfFirstAppointment' | 'incrementDate' | 'salaryCode'> = {
   gender: 'Male',
   maritalStatus: 'Single',
+  age: 0,
+  dateOfRetirement: '',
   basicSalary: 0,
   incrementAmount: 0,
 };
