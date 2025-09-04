@@ -1,5 +1,4 @@
 use rusqlite::{params, Connection, Result};
-use std::path::Path;
 use chrono::Utc;
 use crate::database::models::{Staff, StaffSearch, StaffCount, DesignationCount, GenderCount};
 
